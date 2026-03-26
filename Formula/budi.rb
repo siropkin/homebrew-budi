@@ -33,6 +33,8 @@ class Budi < Formula
       budi has been initialized automatically.
       The daemon is running on http://127.0.0.1:7878
 
+      Restart Claude Code and Cursor to activate hooks and the status line.
+
       Open the dashboard:
         budi open
 
