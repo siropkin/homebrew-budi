@@ -24,6 +24,23 @@ class Budi < Formula
     bin.install "budi-daemon"
   end
 
+  def post_install
+    system bin/"budi", "init"
+  end
+
+  def caveats
+    <<~EOS
+      budi has been initialized automatically.
+      The daemon is running on http://127.0.0.1:7878
+
+      Open the dashboard:
+        budi open
+
+      Load full history (first time only):
+        budi history
+    EOS
+  end
+
   test do
     assert_match "budi", shell_output("#{bin}/budi --help")
   end
