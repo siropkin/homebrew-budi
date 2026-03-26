@@ -7,22 +7,27 @@
 class Budi < Formula
   desc "Local-first cost analytics for AI coding agents"
   homepage "https://github.com/siropkin/budi"
-  version "7.0.4"
+  version "7.1.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/siropkin/budi/releases/download/v7.0.4/budi-v7.0.4-aarch64-apple-darwin.tar.gz"
-      sha256 "a0e81f21a05248020b23a4e790d0cfe2e44559cfb1535df0ac3befabe136b415"
+      url "https://github.com/siropkin/budi/releases/download/v7.1.0/budi-v7.1.0-aarch64-apple-darwin.tar.gz"
+      sha256 "fdc6b6efddbb4ba4be3fdf537e258b9fe80ef587142c0f5ebc3211a1dd29ba1f"
     else
-      url "https://github.com/siropkin/budi/releases/download/v7.0.4/budi-v7.0.4-x86_64-apple-darwin.tar.gz"
-      sha256 "29b7d94ea99f6bad016b9eda9db8434729654e3f102e91b330056ecbb50e51aa"
+      url "https://github.com/siropkin/budi/releases/download/v7.1.0/budi-v7.1.0-x86_64-apple-darwin.tar.gz"
+      sha256 "67ab6da83d355db6faa96bea22749547679e2efc0831cd560f53debb64b6314f"
     end
   end
 
   on_linux do
-    url "https://github.com/siropkin/budi/releases/download/v7.0.4/budi-v7.0.4-x86_64-unknown-linux-gnu.tar.gz"
-    sha256 "93d2710c7ac3077319ed4c49eca67e7e8f3496eb705af0e98f303897d27923d3"
+    if Hardware::CPU.arm?
+      url "https://github.com/siropkin/budi/releases/download/v7.1.0/budi-v7.1.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "4f8a61d799cb72ab72b3eefa52933b73aa082002ddd276dca744b1165ba38c62"
+    else
+      url "https://github.com/siropkin/budi/releases/download/v7.1.0/budi-v7.1.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "5a34f437af2c7fb2bcb6b05281564f282636a6875ecfad47c8c4a05cd7eb0793"
+    end
   end
 
   def install
@@ -34,6 +39,7 @@ class Budi < Formula
     <<~EOS
       To get started, run:
         budi init
+        budi doctor     # verify everything is working
 
       This starts the daemon, installs hooks, and syncs your data.
       Restart Claude Code and Cursor to activate hooks and the status line.
