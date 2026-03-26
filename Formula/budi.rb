@@ -7,26 +7,26 @@
 class Budi < Formula
   desc "Local-first cost analytics for AI coding agents"
   homepage "https://github.com/siropkin/budi"
-  version "7.1.2"
+  version "7.1.3"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/siropkin/budi/releases/download/v7.1.2/budi-v7.1.2-aarch64-apple-darwin.tar.gz"
-      sha256 "3f04253114a7142eace72446490386d9969e8ddca554252a27d5b80b78f870ad"
+      url "https://github.com/siropkin/budi/releases/download/v7.1.3/budi-v7.1.3-aarch64-apple-darwin.tar.gz"
+      sha256 "5b695490fa49c7e307de6aa87b7a1ef163030501f78d72559d25304c8000513f"
     else
-      url "https://github.com/siropkin/budi/releases/download/v7.1.2/budi-v7.1.2-x86_64-apple-darwin.tar.gz"
-      sha256 "4b6253216a9913615e532171c8f258dcb6abf67f5ae4189971b718b230514bc2"
+      url "https://github.com/siropkin/budi/releases/download/v7.1.3/budi-v7.1.3-x86_64-apple-darwin.tar.gz"
+      sha256 "43b05ed3794ee0e546c1c8681cabbfc63600d771617bcc2bbb11e767721425dc"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/siropkin/budi/releases/download/v7.1.2/budi-v7.1.2-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "fe1170b9bb92464136b4695fbe0789bb225d9026053ff292686ba82556e7676b"
+      url "https://github.com/siropkin/budi/releases/download/v7.1.3/budi-v7.1.3-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "a4f07d652fffb8a6617689600f283ba56166d6f3fab5738e6e5ee7d9d2fbda92"
     else
-      url "https://github.com/siropkin/budi/releases/download/v7.1.2/budi-v7.1.2-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "15e2cdc3264815161586b18bc2a80c4a075fc6271afd82217c6d91bef675bce6"
+      url "https://github.com/siropkin/budi/releases/download/v7.1.3/budi-v7.1.3-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "e9bc061aa3a4b9af72ff59d752c165e5740d50d0edc62e5d79aeba22a2fa97ae"
     end
   end
 
@@ -37,11 +37,9 @@ class Budi < Formula
 
   def caveats
     <<~EOS
-      To get started, run:
+      Get started:
         budi init
-        budi doctor     # verify everything is working
 
-      This starts the daemon, installs hooks, and syncs your data.
       Restart Claude Code and Cursor to activate hooks and the status line.
     EOS
   end
