@@ -7,26 +7,26 @@
 class Budi < Formula
   desc "Local-first cost analytics for AI coding agents"
   homepage "https://github.com/siropkin/budi"
-  version "7.1.5"
+  version "7.1.6"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/siropkin/budi/releases/download/v7.1.5/budi-v7.1.5-aarch64-apple-darwin.tar.gz"
-      sha256 "78a05c92bad72f32ef75e04b91439fe8365176fd0bd28eeb7d2ccedc8e2f0a1d"
+      url "https://github.com/siropkin/budi/releases/download/v7.1.6/budi-v7.1.6-aarch64-apple-darwin.tar.gz"
+      sha256 "d13bd4638830dc0643bd72464ca825e6293164f3c3652e312bd5d7c9d00a48d7"
     else
-      url "https://github.com/siropkin/budi/releases/download/v7.1.5/budi-v7.1.5-x86_64-apple-darwin.tar.gz"
-      sha256 "7029377bdbf2dee68ce391476168266a6f0583ee3bdf16018655009c4b6128d3"
+      url "https://github.com/siropkin/budi/releases/download/v7.1.6/budi-v7.1.6-x86_64-apple-darwin.tar.gz"
+      sha256 "a90c47bfb2f39b7345ee1f1dd9554aebbcae491906992500609ca2fdfdc1e1ee"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/siropkin/budi/releases/download/v7.1.5/budi-v7.1.5-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "f85826cf95551b105fc1ad7bf33f1e48f7acd86f82a86ada7cb7b95742c33fd0"
+      url "https://github.com/siropkin/budi/releases/download/v7.1.6/budi-v7.1.6-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "4e83c8c58ba34d8db18cf25c41fbf01f2844148d1bd563aa5f123b9a8a65be26"
     else
-      url "https://github.com/siropkin/budi/releases/download/v7.1.5/budi-v7.1.5-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "eba0b3627189995744c926e018d54aa0ce45214c1b0e4082cb511c1277cc666c"
+      url "https://github.com/siropkin/budi/releases/download/v7.1.6/budi-v7.1.6-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "72c8635b960f29bf95122462013b754a5c67c2faf12a64a06241173ce37c58f4"
     end
   end
 
