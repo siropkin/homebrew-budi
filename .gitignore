@@ -1,0 +1,19 @@
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+.cursor/
+*.swp
+*.swo
+
+# Local agent / scratch artifacts
+.claude/
+*.plan.*
+*.scratch.*
+*.tmp
+*.temp
+
+# Ruby / Homebrew build artifacts (should not appear in a tap, but be safe)
+.bundle/
+vendor/bundle/
+*.gem
