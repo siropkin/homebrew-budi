@@ -1,0 +1,12 @@
+# OS / editor junk
+.DS_Store
+.idea/
+.vscode/
+
+# Ruby build artifacts
+.bundle/
+vendor/
+*.gem
+
+# Logs
+*.log
