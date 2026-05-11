@@ -13,10 +13,12 @@ This repo is **release metadata only**. The product itself lives in [`siropkin/b
 
 | Product | Repo | Role |
 |---------|------|------|
-| **budi-core** | [`siropkin/budi`](https://github.com/siropkin/budi) | Rust workspace: daemon, CLI, proxy. Source of all release artifacts. |
-| **budi-cursor** | [`siropkin/budi-cursor`](https://github.com/siropkin/budi-cursor) | VS Code/Cursor extension |
+| **budi-core** | [`siropkin/budi`](https://github.com/siropkin/budi) | Rust workspace: daemon, CLI, transcript tailer. Source of all release artifacts. |
+| **budi-cursor** | [`siropkin/budi-cursor`](https://github.com/siropkin/budi-cursor) | VS Code / Cursor extension |
+| **budi-jetbrains** | [`siropkin/budi-jetbrains`](https://github.com/siropkin/budi-jetbrains) | JetBrains IDE plugin (Kotlin) |
 | **budi-cloud** | [`siropkin/budi-cloud`](https://github.com/siropkin/budi-cloud) | Cloud dashboard at `app.getbudi.dev` |
 | **homebrew-budi** | **this repo** (`siropkin/homebrew-budi`) | Homebrew tap that points `brew` at GitHub release tarballs |
+| **getbudi.dev** | [`siropkin/getbudi.dev`](https://github.com/siropkin/getbudi.dev) | Marketing site at `getbudi.dev` |
 
 ## Install (for users)
 
@@ -69,7 +71,7 @@ After install, users run:
 budi init
 ```
 
-which patches shell / editor config for proxy routing and installs the platform-native autostart service (see main repo's SOUL.md for the details).
+which creates the data dir, starts the daemon, installs the platform-native autostart service (launchd on macOS, systemd user unit on Linux), and wires recommended integrations (Claude Code statusline, Cursor / VS Code extension). Live capture is JSONL-tailing only — no shell or editor proxy patching ([ADR-0089](https://github.com/siropkin/budi/blob/main/docs/adr/0089-reverse-proxy-first-jsonl-tailing-as-sole-live-path.md)). See `siropkin/budi/SOUL.md` for the canonical contract.
 
 ## Dev notes
 
