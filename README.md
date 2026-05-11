@@ -59,7 +59,6 @@ The `Formula/budi.rb` file in this tap is **auto-generated** by the [Budi releas
 - JetBrains plugin: [github.com/siropkin/budi-jetbrains](https://github.com/siropkin/budi-jetbrains)
 - Cloud dashboard: [github.com/siropkin/budi-cloud](https://github.com/siropkin/budi-cloud) · [app.getbudi.dev](https://app.getbudi.dev)
 - Marketing site: [github.com/siropkin/getbudi.dev](https://github.com/siropkin/getbudi.dev) · [getbudi.dev](https://getbudi.dev)
-- Latest release: [v8.0.0](https://github.com/siropkin/budi/releases/latest)
 
 ## License
 
