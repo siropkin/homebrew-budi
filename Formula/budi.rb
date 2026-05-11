@@ -7,7 +7,6 @@
 class Budi < Formula
   desc "Local-first cost analytics for AI coding agents"
   homepage "https://github.com/siropkin/budi"
-  version "8.4.2"
   license "MIT"
 
   on_macos do
