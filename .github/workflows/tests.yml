@@ -19,9 +19,6 @@ jobs:
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
-      - name: Tap this repo
-        run: brew tap siropkin/budi "$GITHUB_WORKSPACE"
-
       - name: brew style
         run: brew style siropkin/budi/budi
 
@@ -33,9 +30,6 @@ jobs:
 
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
-
-      - name: Tap this repo
-        run: brew tap siropkin/budi "$GITHUB_WORKSPACE"
 
       - name: brew audit
         run: brew audit --strict --online siropkin/budi/budi
@@ -52,9 +46,6 @@ jobs:
 
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
-
-      - name: Tap this repo
-        run: brew tap siropkin/budi "$GITHUB_WORKSPACE"
 
       - name: brew install
         run: brew install --formula siropkin/budi/budi
