@@ -19,8 +19,11 @@ jobs:
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
+      - name: Tap this repo
+        run: brew tap siropkin/budi "$GITHUB_WORKSPACE"
+
       - name: brew style
-        run: brew style Formula/budi.rb
+        run: brew style siropkin/budi/budi
 
   audit:
     name: brew audit (--strict --online)
@@ -31,8 +34,11 @@ jobs:
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
+      - name: Tap this repo
+        run: brew tap siropkin/budi "$GITHUB_WORKSPACE"
+
       - name: brew audit
-        run: brew audit --strict --online Formula/budi.rb
+        run: brew audit --strict --online siropkin/budi/budi
 
   install:
     name: brew install smoke test
@@ -47,8 +53,11 @@ jobs:
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
-      - name: brew install --formula
-        run: brew install --formula ./Formula/budi.rb
+      - name: Tap this repo
+        run: brew tap siropkin/budi "$GITHUB_WORKSPACE"
+
+      - name: brew install
+        run: brew install --formula siropkin/budi/budi
 
       - name: brew test
-        run: brew test ./Formula/budi.rb
+        run: brew test siropkin/budi/budi
