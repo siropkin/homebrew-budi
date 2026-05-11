@@ -1,6 +1,6 @@
 # Homebrew Tap for Budi
 
-[Budi](https://github.com/siropkin/budi) is a local-first cost analytics layer for AI coding agents. It sits as a transparent proxy between your editor (Claude Code, Codex, Cursor, Copilot CLI) and the upstream provider, capturing every request in real time so you can see session cost, today's spend, and historical trends — without any prompts, code, or responses leaving your machine.
+[Budi](https://github.com/siropkin/budi) is a local-first cost analytics layer for AI coding agents. It tails the JSONL transcripts that Claude Code, Codex, Cursor, and Copilot CLI write to disk, capturing every request in real time so you can see session cost, today's spend, and historical trends — without any prompts, code, or responses leaving your machine.
 
 This repository is the [Homebrew](https://brew.sh/) tap for distributing Budi on macOS and Linux.
 
@@ -11,18 +11,15 @@ brew install siropkin/budi/budi
 budi init
 ```
 
-`budi init` starts the daemon, registers a platform autostart service (launchd on macOS, systemd user unit on Linux), patches your shell profile so CLI agents route through the Budi proxy, and offers to install the Cursor / VS Code extension.
-
-Restart your terminal (or `source ~/.zshrc` / `source ~/.bashrc`) after `budi init` so the proxy env vars take effect for new shells.
+`budi init` creates the data dir, starts the daemon, registers a platform autostart service (launchd on macOS, systemd user unit on Linux), and wires recommended integrations (Claude Code statusline, Cursor / VS Code extension). Capture is JSONL-tailing only — no shell or editor patching.
 
 ## What you get
 
-- `budi status` — quick overview: daemon, proxy, today's cost
+- `budi status` — quick overview: daemon, today's cost
 - `budi stats` — usage analytics by agent, project, branch, model, or tag
 - `budi sessions` — per-session breakdown with health signals
 - `budi health` — session vitals: prompt growth, cache reuse, retry loops, cost acceleration
-- `budi doctor` — health check for daemon, database, shell config, and autostart
-- `budi launch <agent>` — explicit proxy-routed launch for Claude Code / Codex / Cursor / Copilot
+- `budi doctor` — health check for daemon, database, and autostart
 - `budi import` — import historical transcripts (Claude Code, Codex CLI, Copilot CLI, Cursor)
 
 ## Optional cloud dashboard
@@ -39,7 +36,7 @@ brew upgrade budi
 
 ```bash
 brew uninstall budi
-budi uninstall   # removes local config, autostart service, and proxy shell block (keeps the binaries managed by brew)
+budi uninstall   # removes local config and autostart service (keeps the binaries managed by brew)
 ```
 
 ## Platforms
@@ -59,7 +56,9 @@ The `Formula/budi.rb` file in this tap is **auto-generated** by the [Budi releas
 
 - Project: [github.com/siropkin/budi](https://github.com/siropkin/budi)
 - Cursor / VS Code extension: [github.com/siropkin/budi-cursor](https://github.com/siropkin/budi-cursor)
+- JetBrains plugin: [github.com/siropkin/budi-jetbrains](https://github.com/siropkin/budi-jetbrains)
 - Cloud dashboard: [github.com/siropkin/budi-cloud](https://github.com/siropkin/budi-cloud) · [app.getbudi.dev](https://app.getbudi.dev)
+- Marketing site: [github.com/siropkin/getbudi.dev](https://github.com/siropkin/getbudi.dev) · [getbudi.dev](https://getbudi.dev)
 - Latest release: [v8.0.0](https://github.com/siropkin/budi/releases/latest)
 
 ## License
