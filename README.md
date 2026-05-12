@@ -50,7 +50,9 @@ For Windows, download the `.zip` from the [GitHub Releases](https://github.com/s
 
 ## Formula
 
-The `Formula/budi.rb` file in this tap is **auto-generated** by the [Budi release workflow](https://github.com/siropkin/budi/blob/main/.github/workflows/release.yml) on every `v*` tag. Do not edit it manually — changes are overwritten on the next release.
+The `Formula/budi.rb` file in this tap is **auto-generated** by the [Budi release workflow](https://github.com/siropkin/budi/blob/main/.github/workflows/release.yml) on every stable `vX.Y.Z` tag. Do not edit it manually — changes are overwritten on the next release.
+
+**Prerelease tags** in the main repo (`vX.Y.Z-rc.N`, `-beta.N`, …) **do not bump this tap** — the GitHub release is published as a "Pre-release" with full platform artifacts for direct download/testing, but `brew upgrade siropkin/budi/budi` stays on the latest stable. Maintainers promote an rc by re-tagging the same SHA as the clean `vX.Y.Z`; the tap auto-bumps then.
 
 ## Links
 

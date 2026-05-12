@@ -48,6 +48,16 @@ brew untap siropkin/budi
 
 Because step 2 is automated, do not open manual PRs against `Formula/budi.rb`. If the formula is wrong, fix the release workflow in the main repo — not this file.
 
+### Prereleases (`vX.Y.Z-rc.N`, `-beta.N`, …)
+
+Any tag in the main repo with a `-` in the version (e.g. `v8.4.8-rc.1`) is a **prerelease**:
+
+- The GitHub release is marked `prerelease: true` and excluded from the "Latest" badge on the main repo page.
+- **The tap is NOT bumped** — `Formula/budi.rb` keeps pointing at the last stable. `brew upgrade siropkin/budi/budi` users never see the rc.
+- The release workflow's `update-homebrew` job is gated on `IS_PRERELEASE != 'true'` (see `siropkin/budi/.github/workflows/release.yml`).
+
+To test a prerelease locally, download the asset directly from the GitHub release page and swap the binary in `/opt/homebrew/Cellar/budi/<current-stable>/bin/` — or run it out of `/tmp`. When the rc passes smoke, the main repo re-tags the same SHA as `vX.Y.Z` and this tap auto-bumps on that stable tag.
+
 ## Supported platforms
 
 The formula builds for four targets:
