@@ -2,8 +2,17 @@
 .DS_Store
 .idea/
 .vscode/
+*.swp
+*.swo
 
-# Ruby build artifacts
+# Local agent / scratch artifacts (mirrors .gitignore)
+.claude/
+*.plan.*
+*.scratch.*
+*.tmp
+*.temp
+
+# Ruby / Homebrew build artifacts
 .bundle/
 vendor/
 *.gem
