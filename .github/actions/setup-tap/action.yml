@@ -1,0 +1,8 @@
+name: Set up Homebrew
+description: Install Homebrew on the runner so brew style/audit/install commands work.
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Homebrew
+      uses: Homebrew/actions/setup-homebrew@c8884c2ac585f47e5cba71e5025e52a7738f2a28 # master @ 2026-05-14
