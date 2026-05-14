@@ -4,10 +4,13 @@ Homebrew tap for **budi**. Provides the formula that `brew install siropkin/budi
 
 This repo is **release metadata only**. The product itself lives in [`siropkin/budi`](https://github.com/siropkin/budi). Do not put source code, build tooling, or docs here — only the Ruby formula and the minimal scaffolding a tap needs.
 
-## What's here
+## Doc layout
 
+- `README.md` — end-user facing: what budi is, how to install/update/uninstall, supported platforms, links to sibling repos. Anything a user lands on from `brew search` or a release announcement reads here.
+- `SOUL.md` — this file. Canonical guidance for AI agents and maintainers working in this repo: release flow, prerelease handling, target triples, formula contracts, dev notes. No end-user material; cross-link to `README.md` when needed.
+- `CLAUDE.md`, `AGENTS.md` — tooling-discovery pointers (Claude Code reads `CLAUDE.md`, Codex / other agents read `AGENTS.md`). Both redirect here. Keep them as files rather than symlinks for portability across clones and Windows checkouts.
 - `Formula/budi.rb` — the formula. **Auto-generated** by the release workflow in the main repo. Do not edit by hand; changes will be overwritten on the next release.
-- `README.md` — short tap instructions for end users.
+- `docs/` — one-off audit notes and ADR-style scratch (e.g. `formula-audit-2026-05.md`). Not a long-lived docs tree.
 
 ## Product boundaries
 
@@ -22,23 +25,7 @@ This repo is **release metadata only**. The product itself lives in [`siropkin/b
 
 ## Install (for users)
 
-```bash
-brew install siropkin/budi/budi
-```
-
-The longer form:
-
-```bash
-brew tap siropkin/budi
-brew install budi
-```
-
-Uninstall / untap:
-
-```bash
-brew uninstall budi
-brew untap siropkin/budi
-```
+See `README.md`. The canonical install / update / uninstall steps live there so users landing on the tap from a release announcement don't have to read agent docs. Do not duplicate them here.
 
 ## Release flow
 
@@ -58,9 +45,9 @@ Any tag in the main repo with a `-` in the version (e.g. `v8.4.8-rc.1`) is a **p
 
 To test a prerelease locally, download the asset directly from the GitHub release page and swap the binary in `/opt/homebrew/Cellar/budi/<current-stable>/bin/` — or run it out of `/tmp`. When the rc passes smoke, the main repo re-tags the same SHA as `vX.Y.Z` and this tap auto-bumps on that stable tag.
 
-## Supported platforms
+## Supported target triples
 
-The formula builds for four targets:
+The formula resolves to one of four prebuilt tarballs (the user-facing platform list lives in `README.md`):
 
 | OS | Arch | Target triple |
 |----|------|---------------|
@@ -69,7 +56,7 @@ The formula builds for four targets:
 | Linux | arm64 | `aarch64-unknown-linux-gnu` |
 | Linux | x86_64 | `x86_64-unknown-linux-gnu` |
 
-Windows is not distributed via Homebrew. Windows users install via the tarball on the GitHub releases page of the main repo.
+Windows is not distributed via Homebrew. Windows users install via the `.zip` on the GitHub releases page of the main repo.
 
 ## Formula post-install
 
@@ -88,4 +75,4 @@ which creates the data dir, starts the daemon, installs the platform-native auto
 - Do not add custom taps or formulae here beyond `budi.rb` unless there is a clear reason. This tap exists for one formula.
 - `test do` in the formula should stay trivial — `budi --version` level. Anything deeper belongs in the main repo's CI, not here.
 - If a user reports `brew install` breaking, check the release workflow first, then the formula URLs / sha256s, then Homebrew's bottle build logs.
-- Keep the `README.md` minimal: install command, link to main repo, nothing else. Users coming here are confirming a URL, not reading docs.
+- `README.md` is the user-facing landing page (what budi is, install/update/uninstall, supported platforms, sibling-repo links). Keep it skimmable; if it grows beyond a quick read, push agent/maintainer detail back here rather than into the README.
