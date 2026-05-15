@@ -37,6 +37,27 @@ jobs:
       - name: brew install
         run: brew install --formula siropkin/budi/budi
 
+      - name: version parity (budi vs budi-daemon)
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Both binaries must end up on PATH and report the same version.
+          # Skew between them breaks the daemon auto-restart contract (see SOUL.md).
+          command -v budi
+          command -v budi-daemon
+          budi_v="$(budi --version | grep -oE '[0-9]+\.[0-9]+\.[0-9]+([-+][0-9A-Za-z.]+)*' | head -n1)"
+          daemon_v="$(budi-daemon --version | grep -oE '[0-9]+\.[0-9]+\.[0-9]+([-+][0-9A-Za-z.]+)*' | head -n1)"
+          echo "budi:        ${budi_v}"
+          echo "budi-daemon: ${daemon_v}"
+          if [ -z "${budi_v}" ] || [ -z "${daemon_v}" ]; then
+            echo "::error::could not parse a version from --version output"
+            exit 1
+          fi
+          if [ "${budi_v}" != "${daemon_v}" ]; then
+            echo "::error::version mismatch: budi=${budi_v} budi-daemon=${daemon_v}"
+            exit 1
+          fi
+
       - name: brew test
         run: brew test siropkin/budi/budi
 
