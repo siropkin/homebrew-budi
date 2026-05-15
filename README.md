@@ -24,7 +24,7 @@ budi init
 
 ## Optional cloud dashboard
 
-An optional, opt-in cloud dashboard at [app.getbudi.dev](https://app.getbudi.dev) gives engineering managers team-wide cost visibility. Only aggregated daily rollups and session summaries leave the machine — prompts, code, responses, file paths, and email addresses are never uploaded. See [ADR-0083](https://github.com/siropkin/budi/blob/main/docs/adr/0083-cloud-ingest-identity-and-privacy-contract.md) for the full privacy contract. Cloud sync is disabled by default.
+An optional, opt-in cloud dashboard at [app.getbudi.dev](https://app.getbudi.dev) gives solo developers and teams cost visibility across users, repos, models, and branches. Only aggregated daily rollups and session summaries leave the machine — prompts, code, responses, file paths, and email addresses are never uploaded. See [ADR-0083](https://github.com/siropkin/budi/blob/main/docs/adr/0083-cloud-ingest-identity-and-privacy-contract.md) for the full privacy contract. Cloud sync is disabled by default.
 
 ## Update
 
