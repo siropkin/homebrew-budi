@@ -70,6 +70,10 @@ budi init
 
 which creates the data dir, starts the daemon, installs the platform-native autostart service (launchd on macOS, systemd user unit on Linux), and wires recommended integrations (Claude Code statusline, Cursor / VS Code extension). Live capture is JSONL-tailing only — no shell or editor proxy patching ([ADR-0089](https://github.com/siropkin/budi/blob/main/docs/adr/0089-reverse-proxy-first-jsonl-tailing-as-sole-live-path.md)). See `siropkin/budi/SOUL.md` for the canonical contract.
 
+## Issue tracking
+
+All budi repos use **GitHub Issues** as the issue tracker. File bugs, feature requests, and tasks as GitHub issues on the relevant repo.
+
 ## Dev notes
 
 - Do not add custom taps or formulae here beyond `budi.rb` unless there is a clear reason. This tap exists for one formula.
