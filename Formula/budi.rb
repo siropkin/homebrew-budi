@@ -11,21 +11,21 @@ class Budi < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/siropkin/budi/releases/download/v8.5.3/budi-v8.5.3-aarch64-apple-darwin.tar.gz"
-      sha256 "42598355eba344958f3a08981d4ad8c8d32404ea366d5ea4ec0eb77716f9bf25"
+      url "https://github.com/siropkin/budi/releases/download/v8.5.6/budi-v8.5.6-aarch64-apple-darwin.tar.gz"
+      sha256 "5e3538c9cd032625c19c1e99ffa8b8d266e5971c392d9dd77b19af184cf9dd83"
     else
-      url "https://github.com/siropkin/budi/releases/download/v8.5.3/budi-v8.5.3-x86_64-apple-darwin.tar.gz"
-      sha256 "f2d2c2ea16167578d71bcc58c9af149781ded644359af29363f58ab1c2aec191"
+      url "https://github.com/siropkin/budi/releases/download/v8.5.6/budi-v8.5.6-x86_64-apple-darwin.tar.gz"
+      sha256 "e095ae9300a73e5bddcf5ce16eeeca6931ca0afd030137d390849ac262052af9"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/siropkin/budi/releases/download/v8.5.3/budi-v8.5.3-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "fb2f82b0e2c9c2372a0f841510fd26354ed53e2cfc94b7a30acf323b22d64e73"
+      url "https://github.com/siropkin/budi/releases/download/v8.5.6/budi-v8.5.6-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "48af5cb82d9f046059e6d89b794a2f6dcfd3308375ad5d1c318e0d12d6ef89bf"
     else
-      url "https://github.com/siropkin/budi/releases/download/v8.5.3/budi-v8.5.3-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "73eb9f664294d924c55264733897ad3820b168f1ae64929988fa1214c6a74055"
+      url "https://github.com/siropkin/budi/releases/download/v8.5.6/budi-v8.5.6-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "6634314d473b7aaf61436766fc6a442f48da9295ef70e7dba427041e242d8934"
     end
   end
 
